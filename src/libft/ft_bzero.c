@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:30:33 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:30:33 by Degef            ###   ########.fr       */
+/*   Created: 2022/12/24 13:13:25 by Degef             #+#    #+#             */
+/*   Updated: 2022/12/24 13:13:25 by Degef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	l;
+	unsigned char	*p;
 
-	l = 0;
-	while (s[l] != 0)
-		l++;
-	return (l);
+	p = s;
+	while (n--)
+	{
+		*p = '\0';
+		p++;
+	}
 }
+
+// int main()
+// {
+//     char str[4] = "ABCD";
+//     printf("%s\n", str);
+//     ft_bzero(&str, 3);
+//     printf("%s\n", str);
+// }

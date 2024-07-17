@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:30:33 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:30:33 by Degef            ###   ########.fr       */
+/*   Created: 2022/12/24 17:03:25 by Degef             #+#    #+#             */
+/*   Updated: 2022/12/24 17:03:25 by Degef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	l;
-
-	l = 0;
-	while (s[l] != 0)
-		l++;
-	return (l);
+	write(fd, &c, 1);
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:30:33 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:30:33 by Degef            ###   ########.fr       */
+/*   Created: 2022/12/24 17:23:22 by Degef             #+#    #+#             */
+/*   Updated: 2022/12/24 17:23:22 by Degef            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	l;
+	int	i;
 
-	l = 0;
-	while (s[l] != 0)
-		l++;
-	return (l);
+	i = 0;
+	if (c >= 256)
+		c = c % 256;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if (s[i] == c)
+		return ((char *)(s + i));
+	return ((0));
 }

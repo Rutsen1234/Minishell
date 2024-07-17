@@ -33,5 +33,6 @@ void ft_minishell(char **env)
     while (1)
     {
         show_prompt();
+        micro_readline(&line, &status);
     }
 }
