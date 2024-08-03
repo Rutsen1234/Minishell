@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 15:51:26 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 15:51:26 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:40:39 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/01 17:26:04 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	void	*ret;
+	size_t	i;
+	char	*srcc;
+	char	*dstt;
 
-	if (!dst && !src)
-		return (0);
-	ret = dst;
-	if (src < dst)
+	srcc = (char *)src;
+	dstt = (char *)dst;
+	if (dst == src)
+		return (NULL);
+	i = -1;
+	if (src > dst)
 	{
-		src += len;
-		dst += len;
-		while (len--)
-			*(char *)--dst = *(char *)--src;
+		while (len > ++i)
+			dstt[i] = srcc[i];
 	}
 	else
-		while (len--)
-			*(char *)dst++ = *(char *)src++;
-	return (ret);
+	{
+		while (len)
+		{
+			dstt[len - 1] = srcc[len - 1];
+			len--;
+		}
+	}
+	return (dst);
 }
-
-// int main()
-// {
-// char src[15] = "hello world";
-
-// //printf("%s\n", ft_memmove(src + 2, src, 11));
-// return 0;
-// }

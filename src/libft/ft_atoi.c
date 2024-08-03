@@ -3,45 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 12:09:25 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 12:09:25 by Degef            ###   ########.fr       */
+/*   Created: 2019/10/18 13:05:06 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/02 17:03:23 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const	char *nptr)
+long long	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
-	int	num;
+	int					i;
+	int					r;
+	long long			result;
 
-	sign = 1;
+	i = 0;
+	r = 1;
 	result = 0;
-	while (nptr && ((*nptr >= 9 && *nptr <= 13) || *nptr == 32))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	while ((str[i] == '\n' || str[i] == '\r' || str[i] == ' ' || str[i] == '\t'
+			|| str[i] == '\v' || str[i] == '\f') && str[i])
+		i++;
+	if (str[i] == '-')
+		r = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
-	}
-	while (nptr && *nptr >= '0' && *nptr <= '9')
-	{
-		num = *nptr - '0';
+		if (result < 0 && r == -1)
+			return (0);
+		if (result < 0 && r == 1)
+			return (-1);
 		result *= 10;
-		result += num;
-		nptr++;
+		result += str[i] - '0';
+		i++;
 	}
-	result *= sign;
-	return (result);
+	return (r * result);
 }
 
-// int main()
-// {
-//     char *num = "           1234m234";
-//     printf ("%d\n", ft_atoi(num));
-//     return (0);
-// }
+long long	my_atoi(const char *str)
+{
+	int					i;
+	int					r;
+	long long			result;
+
+	i = 0;
+	r = 1;
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		if (result < 0)
+			return (-1);
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (r * result);
+}

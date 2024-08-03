@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 17:20:18 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 17:20:18 by Degef            ###   ########.fr       */
+/*   Created: 2019/10/19 22:36:28 by mbari             #+#    #+#             */
+/*   Updated: 2019/10/22 18:38:09 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
-	write (fd, s, ft_strlen(s));
-}
+	size_t	i;
 
-// int main()
-// {
-//     char *s = "Hello";
-//     ft_putstr_fd(s, 1);
-//     return (0);
-// }
+	if (s == NULL)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+}

@@ -1,0 +1,7 @@
+Makefile
+README.md
+hassan.txt
+headers
+minishell
+objects
+src

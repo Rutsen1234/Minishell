@@ -3,58 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 13:44:01 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 13:44:01 by Degef            ###   ########.fr       */
+/*   Created: 2019/10/20 16:21:35 by mbari             #+#    #+#             */
+/*   Updated: 2024/08/01 16:44:59 by hassaneltah      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	findsize(int n)
+void	ft_store(char *str, int int_size, int n)
 {
-	int	size;
+	int	i;
 
-	size = 0;
-	if (n < 0)
-		size++;
-	while (n && ++size)
-		n = n / 10;
-	return (size);
+	if (n > 0)
+		i = 1;
+	else
+		i = 0;
+	str[int_size] = '\0';
+	while (i <= --int_size)
+	{
+		str[int_size] = n % 10 + '0';
+		n /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
 {
-	int			size;
-	char		*str;
-	const char	*digits = "0123456789";
+	// int				i;
+	char			*str;
+	int				int_size;
 
-	size = 1;
-	if (n != 0)
-		size = findsize(n);
-	str = (char *)malloc(sizeof(char) * (size + 1));
+	// i = 0;
+	int_size = ft_intsize(n);
+	str = (char *)malloc(sizeof(char) * int_size + 1);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n <= 0)
+		int_size += 1;
 	if (!str)
-		return (0);
-	str[size] = 0;
-	if (n == 0)
-		str[0] = '0';
-	if (n < 0)
-		str[0] = '-';
-	while (n)
+		return (NULL);
+	if (n <= 0)
 	{
-		if (n > 0)
-			str[--size] = digits[n % 10];
+		// i = 1;
+		if (n == 0)
+			str[0] = '0';
 		else
-			str[--size] = digits[n % 10 * -1];
-		n /= 10;
+			str[0] = '-';
+		n = -n;
 	}
+	ft_store(str, int_size, n);
 	return (str);
 }
-
-// int main()
-// {
-//     printf("%s\n", ft_itoa(0));
-// 	printf("%d\n", findsize(0));
-//     return (0);
-// }

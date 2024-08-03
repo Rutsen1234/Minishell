@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 13:33:48 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 16:08:18 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:45:18 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/19 16:45:52 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
 		return (1);
-	}
-	else
-		return (0);
+	return (0);
 }
-
-// int main()
-// {
-// 	char a = 'A';
-// 	printf("%d", ft_isalpha(a));
-// 	return(0);
-// }

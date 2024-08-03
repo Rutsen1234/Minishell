@@ -3,47 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:10:10 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:10:10 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/19 16:31:49 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/01 17:43:21 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	c;
-	size_t	d;
-	size_t	src_len;
+	size_t	i;
+	size_t	ldst;
+	size_t	lsrc;
+	size_t	cut;
+	size_t	res;
 
-	src_len = ft_strlen(src);
-	if (!dst && dstsize == 0)
-		return (src_len);
-	if (dstsize <= ft_strlen(dst))
-		return (dstsize + src_len);
-	c = ft_strlen(dst);
-	d = 0;
-	while (src[d] != '\0' && c + 1 < dstsize)
+	cut = 0;
+	lsrc = ft_strlen(src);
+	if (!dst && !size)
+		return (lsrc);
+	ldst = ft_strlen(dst);
+	if (size > ldst)
 	{
-		dst[c] = src[d];
-		c++;
-		d++;
+		cut = size - ldst - 1;
+		res = ldst + lsrc;
 	}
-	dst[c] = '\0';
-	return (ft_strlen(dst) + ft_strlen(&src[d]));
+	else
+		res = lsrc + size;
+	i = 0;
+	while (i < cut && src[i])
+		dst[ldst++] = src[i++];
+	if (cut)
+		dst[ldst] = '\0';
+	return (res);
 }
-
-// int main()
-// {
-//     char  *src = "the cake is a lie !\0I'm hidden lol\r\n";
-//     char dest[50]  = "there is no stars in the sky";
-//     char dest2[50]  = "there is no stars in the sky";
-// 	size_t size = ft_strlen(src) + 4;
-
-//     printf("%zu\n", ft_strlcat(dest,src, size));
-//     printf("%zu\n", strlcat(dest2,src, size));
-
-//     return (0);
-// }

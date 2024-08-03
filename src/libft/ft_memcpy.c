@@ -3,46 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 14:19:56 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 14:19:56 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:40:04 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/19 16:32:40 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*csrc;
-	char	*cdest;
-	int		i;
+	size_t	i;
+	char	*dest;
+	char	*ssrc;
 
+	dest = (char *)dst;
+	ssrc = (char *)src;
+	if (src == dst)
+		return (dst);
+	if (!dest && !ssrc)
+		return (NULL);
 	i = 0;
-	csrc = (char *)src;
-	cdest = (char *)dest;
-	if (!cdest && !csrc)
-		return (0);
-	while (n--)
+	while (i < n)
 	{
-		cdest[i] = csrc[i];
+		dest[i] = ssrc[i];
 		i++;
 	}
-	return (cdest);
+	return (dst);
 }
-
-// int main()
-// {
-// char csrc[] = "Hello World";
-// char cdest[20];
-// ft_memcpy(&cdest, &csrc, ft_strlen(csrc)+1);
-// printf("Copied string is %s", cdest);
-// return (0);
-
-// char csrc[100] = "Geeksfor";
-// printf("%s", csrc);
-
-// memcpy(csrc+5, csrc, strlen(csrc)+1);
-// printf("%s", csrc);
-// return 0;
-// }

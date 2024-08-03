@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 13:52:45 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 13:52:45 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:41:01 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/19 16:41:41 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,16 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		i;
-	char	*str;
+	unsigned char	*str;
+	size_t			i;
 
+	str = (unsigned char *)s;
 	i = 0;
-	str = (char *)s;
-	if (c >= 256)
-		c = c % 256;
-	while (n--)
+	while (i < n)
 	{
-		if (str[i] == c)
-			return ((char *)(str + i));
+		if (str[i] == (unsigned char)c)
+			return (str + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
-
-// int main ()
-// {
-//     char *str = "HelloWorld";
-//     int c = 'o';
-//     char *result = ft_memchr(str, c, 5);
-//     printf("%s\n",result);
-//     return (0);
-// }

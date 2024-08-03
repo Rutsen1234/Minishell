@@ -3,51 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:35:52 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:35:52 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:44:04 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/01 17:44:53 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const	char *needle, size_t len)
 {
-	unsigned int	i;
-	int				j;
-	int				s2_len;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	s2_len = ft_strlen(s2);
-	if (!s1 && n == 0)
-		return (0);
-	if (!s2_len)
-		return ((char *)(s1));
-	while (s1[i] && i < n)
+	j = 0;
+	if (ft_strlen(needle) == 0)
+		return ((char *)haystack);
+	while (i < len && haystack[i])
 	{
-		if (s1[i] == s2[0])
-		{
-			j = 0;
-			while (s2[j] != '\0' && s1[i + j] == s2[j] && ((i + j) < n))
-			{
-				if (s2[j + 1] == '\0')
-					return ((char *)(s1 + i));
-				j++;
-			}
-		}
-		i++;
+		j = 0;
+		while (haystack[i + j] == needle[j]
+			&& haystack[i + j] && needle[j] && i + j < len)
+			j++;
+		if (!needle[j])
+			return ((char *)haystack + i);
+		else
+			i++;
 	}
-	return (NULL);
+	return (0);
 }
-
-// int main ()
-// {
-
-//     char * big = "xlrolfol";
-//     char *little = "rolf";
-//     // printf("%s\n", big);
-//     printf("%s\n", ft_strnstr(big, little, 15));
-//     printf("%s\n", strnstr(big, little, 15));
-//     return (0);
-// }

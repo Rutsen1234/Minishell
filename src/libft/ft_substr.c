@@ -3,35 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:50:21 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 18:50:21 by Degef            ###   ########.fr       */
+/*   Created: 2019/10/19 18:29:06 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/18 16:49:56 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ret;
+	size_t	i;
+	size_t	size;
+	char	*s2;
 
-	if (!s)
-		return (0);
-	if (ft_strlen(s) < start)
-		len = 0;
-	if (ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	ret = malloc(sizeof(char) * (len + 1));
-	if (!ret)
-		return (0);
-	ft_strlcpy(ret, s + start, len + 1);
-	return (ret);
+	if (s == NULL)
+		return (NULL);
+	s2 = (char *)malloc(sizeof(char) * len + 1);
+	size = ft_strlen(s);
+	if (!s2)
+		return (NULL);
+	i = 0;
+	if (start < size)
+	{
+		while (i < len)
+		{
+			s2[i] = s[start];
+			start++;
+			i++;
+		}
+	}
+	s2[i] = '\0';
+	return (s2);
 }
-
-// int main()
-// {
-//     char *a = "hello world";
-//     printf("%s\n", ft_substr(a, 15, 5));
-//     return (0);
-// }

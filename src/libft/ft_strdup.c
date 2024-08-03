@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 13:20:49 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/27 14:03:13 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:47:05 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/06 09:29:26 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,17 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int		size;
-	char	*p;
-	char	*dup;
+	int		i;
+	char	*str;
 
-	size = ft_strlen(s1);
-	dup = (char *)malloc(size * sizeof(char) + 1);
-	if (!dup)
-		return (0);
-	p = dup;
-	while (*s1)
-	{
-		*p = *s1;
-		p++;
-		s1++;
-	}
-	*p = '\0';
-	return (dup);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
+	if (!s1)
+		return (NULL);
+	i = -1;
+	while (s1[++i])
+		str[i] = s1[i];
+	str[i] = '\0';
+	return (str);
 }
-
-// int	main(void)
-// {
-// 	char	*str = "Hello";
-
-// 	printf("%s\n", ft_strdup(str));
-// 	return (0);
-// }

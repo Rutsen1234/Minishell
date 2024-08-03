@@ -3,32 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 13:42:53 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 13:43:39 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:46:07 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/01 17:11:12 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> 
-#include <ctype.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-	{
+	if (c >= ' ' && c <= '~')
 		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
-
-// int main()
-// {
-// 	char a = ' ';
-// 	printf("%d", ft_isprint(a));
-// 	printf("\n %d", ft_isprint(a));
-// 	return(0);
-// }

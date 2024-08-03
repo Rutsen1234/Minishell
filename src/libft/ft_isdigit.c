@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 13:41:44 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 16:08:35 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:45:30 by mbari             #+#    #+#             */
+/*   Updated: 2021/06/01 17:11:03 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,5 @@ int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
-
-// int main()
-// {
-// 	char a = 'f';
-// 	printf("%d", ft_isdigit(a));
-// 	return(0);
-// }

@@ -3,33 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 16:52:14 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/24 16:52:14 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:39:15 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/19 16:32:17 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define SIZE_ARRAY 7
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned int	i;
+	size_t			i;
+	unsigned char	*str;
 
+	str = (unsigned char *)b;
 	i = 0;
-	while (n--)
-	{
-		((unsigned char *)s)[i++] = c;
-	}
-	return (s);
+	while (i < len)
+		str[i++] = (unsigned char)c;
+	return (b);
 }
-
-// int main()
-// {
-//     char arr[SIZE_ARRAY] = "ABCD";
-//     printf("%s\n", arr);
-//     ft_memset(arr,'0', sizeof(arr));
-//     printf("%s\n", arr);
-//     return 0;
-// }

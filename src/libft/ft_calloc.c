@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Degef <Degei411233@outlook.com>            +#+  +:+       +#+        */
+/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 13:39:58 by Degef             #+#    #+#             */
-/*   Updated: 2022/12/28 13:57:10 by Degef            ###   ########.fr       */
+/*   Created: 2019/11/18 16:46:52 by mbari             #+#    #+#             */
+/*   Updated: 2019/11/19 16:46:47 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
+	void	*rest;
 
-	if (count >= 65535 && size >= 65535)
-		return (0);
-	p = malloc (count * size);
-	if (!p)
-		return (0);
-	ft_bzero(p, (count * size));
-	return (p);
+	rest = malloc(count * size);
+	if (!rest)
+		return (NULL);
+	ft_bzero(rest, count * size);
+	return (rest);
 }
-
-// int main()
-// {
-// 	int i = 100;
-// 	int m = 4;
-// 	printf("%s\n", ft_calloc(i, m));
-// 	return (0);
-// }
