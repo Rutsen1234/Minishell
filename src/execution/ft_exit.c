@@ -22,10 +22,6 @@ void	ft_check_digit(char	*arg)
 		i++;
 	}
 }
-#include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
-
 int	ft_exit(t_args *args)
 {
 	int		exit_code = 0;
@@ -41,7 +37,7 @@ int	ft_exit(t_args *args)
 
 		while (arg_value[i])
 		{
-			if (!isdigit(arg_value[i]) && arg_value[i] != '-' && arg_value[i] != '+')
+			if (!ft_isdigit(arg_value[i]) && arg_value[i] != '-' && arg_value[i] != '+')
 				return (ft_put_err("exit", ": numeric argument required", 2));
 			i++;
 		}

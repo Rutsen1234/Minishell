@@ -49,10 +49,10 @@ int ft_heredoc(int *fd, t_redirection *redirect) {
         printf("> ");
         if (getline(&line, &len, stdin) == -1)
             break;
-        if (strncmp(line, delimiter, strlen(delimiter)) == 0 &&
-            (line[strlen(delimiter)] == '\n' || line[strlen(delimiter)] == '\0'))
+        if (strncmp(line, delimiter, ft_strlen(delimiter)) == 0 &&
+            (line[ft_strlen(delimiter)] == '\n' || line[ft_strlen(delimiter)] == '\0'))
             break;
-        write(*fd, line, strlen(line));
+        write(*fd, line, ft_strlen(line));
     }
 
     free(line);
