@@ -39,7 +39,6 @@ int	ft_exit(t_args *args)
 	{
 		arg_value = args->value;
 
-		// Check if the argument is a valid number
 		while (arg_value[i])
 		{
 			if (!isdigit(arg_value[i]) && arg_value[i] != '-' && arg_value[i] != '+')
@@ -47,8 +46,7 @@ int	ft_exit(t_args *args)
 			i++;
 		}
 
-		// Convert the argument to an integer exit code
-		exit_code = atoi(arg_value);
+		exit_code = ft_atoi(arg_value);
 
 		if (args->next != NULL)
 			return (ft_put_err("exit", ": too many arguments", 1));
