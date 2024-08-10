@@ -6,7 +6,7 @@
 /*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 09:35:18 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/04 01:31:19 by haeltahi         ###   ########.fr       */
+/*   Updated: 2024/08/10 14:36:52 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ static void	get_redir(t_token *tokens_list, char *line, int *j, int *index)
 			(*index)++;
 		}
 	}
-	else if (line[*j] == '<')
-	{
+	// else if (line[*j] == '<')
+	// {
 		if (line[*j + 1] == '<')
 		{
-			add_token(tokens_list, DOUBLE_GREAT, ft_strdup("<<"), *index);
+			add_token(tokens_list, HEREDOC, ft_strdup("<<"), *index);
 			*j = *j + 2;
 			(*index)++;
 		}
-		else
-		{
-			add_token(tokens_list, GREAT, ft_strdup("<"), *index);
-			(*j)++;
-			(*index)++;
-		}
+		// else
+		// {
+		// 	add_token(tokens_list, LESS, ft_strdup("<"), *index);
+		// 	(*j)++;
+		// 	(*index)++;
+		// }
 	}
-}
+// }
 
 void	get_space_pipe_semi_redir(t_token *tokens_list,
 							   char *line, int *j, int *index)

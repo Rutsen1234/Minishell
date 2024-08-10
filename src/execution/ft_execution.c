@@ -99,10 +99,13 @@ int	ft_execute(t_pipe_line *cmd, t_env **head)
 	mini.red_fd[1] = 0;
 	ft_putstr_fd(BLUE, 1);
 	ft_do_backups(1);
+	
 	if (cmd->child->redirections != NULL)
 	{
+		// printf("dd");
 		if (ft_redirection(&mini, cmd->child->redirections))
 		{
+			// printf("ss");
 			ft_do_backups(0);
 			return (1);
 		}

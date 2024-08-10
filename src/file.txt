@@ -1,0 +1,12 @@
+execution
+expansion
+file.txt
+final_60c4dba80b27fc007b882d1d_636236.gif
+last_arg.c
+lexer
+libft
+main.c
+minishell.c
+new+file
+parse
+readline

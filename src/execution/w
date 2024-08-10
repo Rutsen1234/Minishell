@@ -1,0 +1,15 @@
+total 96
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1946 Aug  4 01:24 ft_cd.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1390 Aug  4 01:24 ft_check_path.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1176 Aug  4 01:24 ft_echo_pwd_env.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  2989 Aug 10 15:15 ft_execution.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1288 Aug  5 13:05 ft_exit.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  2311 Aug  4 01:24 ft_export.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1256 Aug  4 01:24 ft_init_env.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  2958 Aug  4 01:24 ft_pipes.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  3450 Aug 10 14:46 ft_redirection.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1051 Aug  7 13:58 ft_utlis.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi     0 Aug 10 14:39 heredoc_tmp.txt
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1693 Aug  4 01:24 l1.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi  1332 Aug  4 01:24 lo.c
+-rw-r--r--  1 haeltahi  2023_abu-dhabi     0 Aug 10 15:20 w

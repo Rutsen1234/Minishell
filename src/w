@@ -1,0 +1,13 @@
+total 10072
+drwxr-xr-x  16 haeltahi  2023_abu-dhabi      544 Aug 10 15:20 execution
+drwxr-xr-x  13 haeltahi  2023_abu-dhabi      442 Aug  4 01:24 expansion
+-rw-r--r--   1 haeltahi  2023_abu-dhabi      137 Aug 10 12:45 file.txt
+-rw-r--r--   1 haeltahi  2023_abu-dhabi  5138327 Aug  4 01:24 final_60c4dba80b27fc007b882d1d_636236.gif
+-rw-r--r--   1 haeltahi  2023_abu-dhabi     2453 Aug  4 01:24 last_arg.c
+drwxr-xr-x   6 haeltahi  2023_abu-dhabi      204 Aug 10 14:13 lexer
+drwxr-xr-x  79 haeltahi  2023_abu-dhabi     2686 Aug 10 14:55 libft
+-rw-r--r--   1 haeltahi  2023_abu-dhabi     2199 Aug 10 14:13 main.c
+-rw-r--r--   1 haeltahi  2023_abu-dhabi     3095 Aug 10 14:13 minishell.c
+drwxr-xr-x  10 haeltahi  2023_abu-dhabi      340 Aug 10 14:13 parse
+drwxr-xr-x   9 haeltahi  2023_abu-dhabi      306 Aug 10 14:13 readline
+-rw-r--r--   1 haeltahi  2023_abu-dhabi        0 Aug 10 15:24 w

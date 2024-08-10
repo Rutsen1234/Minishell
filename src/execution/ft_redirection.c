@@ -35,33 +35,65 @@ int ft_double_great(int *fd, t_redirection *redirect) {
 }
 
 // Function to handle heredoc redirection
+#include "../../headers/minishell.h"
+#include "../../headers/execution.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Function to handle heredoc redirection
 int ft_heredoc(int *fd, t_redirection *redirect) {
-    printf("am i hear?\n\n\n");
     char *delimiter = redirect->file_name;  // Use the file_name field for the delimiter
     char *line = NULL;
     size_t len = 0;
 
     *fd = open("heredoc_tmp.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
-    if (*fd < 0)
-        return ft_file_err("heredoc_tmp.txt");
+    if (*fd < 0) {
+        perror("Error opening heredoc_tmp.txt for writing");
+        return -1;
+    }
 
     while (1) {
         printf("> ");
-        if (getline(&line, &len, stdin) == -1)
+        if (getline(&line, &len, stdin) == -1) {
+            perror("Error reading line");
             break;
-        if (strncmp(line, delimiter, ft_strlen(delimiter)) == 0 &&
-            (line[ft_strlen(delimiter)] == '\n' || line[ft_strlen(delimiter)] == '\0'))
+        }
+
+        // Check if the line matches the delimiter
+        size_t delimiter_len = strlen(delimiter);
+        if (strncmp(line, delimiter, delimiter_len) == 0 &&
+            (line[delimiter_len] == '\n' || line[delimiter_len] == '\0')) {
             break;
-        write(*fd, line, ft_strlen(line));
+        }
+
+        // Write the line to the file
+        if (write(*fd, line, strlen(line)) == -1) {
+            perror("Error writing to heredoc_tmp.txt");
+            free(line);
+            close(*fd);
+            return -1;
+        }
     }
 
     free(line);
     close(*fd);
-    *fd = open("heredoc_tmp.txt", O_RDONLY);
-    if (*fd < 0)
-        return ft_file_err("heredoc_tmp.txt");
 
-    dup2(*fd, STDIN_FILENO);
+    // Reopen the file for reading
+    *fd = open("heredoc_tmp.txt", O_RDONLY);
+    if (*fd < 0) {
+        perror("Error opening heredoc_tmp.txt for reading");
+        return -1;
+    }
+
+    // Redirect stdin to the file
+    if (dup2(*fd, STDIN_FILENO) == -1) {
+        perror("Error duplicating file descriptor");
+        close(*fd);
+        return -1;
+    }
     close(*fd);
 
     return 0;
