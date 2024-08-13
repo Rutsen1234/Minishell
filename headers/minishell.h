@@ -25,6 +25,7 @@
 # include <termcap.h>
 # include <sys/ioctl.h>
 # include "../src/libft/libft.h"
+#include <sys/wait.h>
 
 # define GREEN "\e[1;32m"
 # define RESET "\e[0m"

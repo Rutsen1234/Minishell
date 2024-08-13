@@ -29,6 +29,7 @@ static void	get_redir(t_token *tokens_list, char *line, int *j, int *index)
 			(*index)++;
 		}
 	}
+<<<<<<< HEAD
 	// else if (line[*j] == '<')
 	// {
 		if (line[*j + 1] == '<')
@@ -45,12 +46,37 @@ static void	get_redir(t_token *tokens_list, char *line, int *j, int *index)
 		// }
 	}
 // }
+=======
+	else if (line[*j] == '<')
+	{
+		if (line[*j + 1] == '<')
+		{
+			printf("check\n");
+			add_token(tokens_list, HEREDOC, ft_strdup("<<"), *index);
+			*j = (*j)+ 2;
+			(*index)++;
+		}
+		else if (line[*j] == '<')
+		{
+			printf("checkff\n");
+			add_token(tokens_list ,LESS, ft_strdup("<"), *index);
+			(*j)++;
+			(*index)++;
+		}		
+	}
+	
+}
+>>>>>>> 43963aa (dujfoisd)
 
 void	get_space_pipe_semi_redir(t_token *tokens_list,
 							   char *line, int *j, int *index)
 {
 	char	*token;
 
+	if(line[*j+ 1] == '<')
+	{
+		printf("E");
+	}
 	if (line[*j] == '|')
 	{
 		if (line[*j + 1] == '|')

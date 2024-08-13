@@ -135,7 +135,7 @@ $(NAME): libft $(OBJS)
 $(OBJECTSDIR)/%.o : $(SOURCEDIR)/%.c $(HEADERSDIR)/*.h
 	@$(MKDIR) $(dir $@)
 	@echo "$(BLUE)█ $(YELLOW)Compiling$(RESET) $<:\r\t\t\t\t\t\t\t$(GREEN){DONE}$(BLUE) █$(RESET)"
-	@$(CC) $(FLAGS) -I $(HEADERSDIR) -I $(LIBFT_HEADER) -o $@ -c $<
+	@$(CC) $(FLAGS) -I $(HEADERSDIR) -I $(LIBFT_FOLDER) -o $@ -c $<
 
 # Remove all objects, dependencies and executable files generated during the build
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 total 240
 -rw-r--r--   1 haeltahi  2023_abu-dhabi   5754 Aug 10 14:13 Makefile
 -rw-r--r--   1 haeltahi  2023_abu-dhabi      0 Aug 10 14:29 a
@@ -10,3 +11,13 @@ drwxr-xr-x  10 haeltahi  2023_abu-dhabi    340 Aug 10 14:29 objects
 -rw-r--r--   1 haeltahi  2023_abu-dhabi      0 Aug 10 14:24 s
 drwxr-xr-x  13 haeltahi  2023_abu-dhabi    442 Aug 10 14:13 src
 -rw-r--r--   1 haeltahi  2023_abu-dhabi     71 Aug 10 14:16 w
+=======
+Makefile
+a
+hassan.txt
+headers
+minishell
+objects
+qa
+src
+>>>>>>> 43963aa (dujfoisd)

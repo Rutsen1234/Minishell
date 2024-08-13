@@ -97,13 +97,18 @@ int	ft_execute(t_pipe_line *cmd, t_env **head)
 	mini.flag = 0;
 	mini.red_fd[0] = 0;
 	mini.red_fd[1] = 0;
+	// int i =1;
 	ft_putstr_fd(BLUE, 1);
 	ft_do_backups(1);
 	
 	if (cmd->child->redirections != NULL)
 	{
+<<<<<<< HEAD
 		// printf("dd");
 		if (ft_redirection(&mini, cmd->child->redirections))
+=======
+		if (ft_redirection(&mini, cmd->child->redirections) )
+>>>>>>> 43963aa (dujfoisd)
 		{
 			// printf("ss");
 			ft_do_backups(0);

@@ -45,10 +45,12 @@ int ft_double_great(int *fd, t_redirection *redirect) {
 
 // Function to handle heredoc redirection
 int ft_heredoc(int *fd, t_redirection *redirect) {
+    printf("assssaa\n");
+
     char *delimiter = redirect->file_name;  // Use the file_name field for the delimiter
     char *line = NULL;
     size_t len = 0;
-
+    printf("hihi\n");
     *fd = open("heredoc_tmp.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
     if (*fd < 0) {
         perror("Error opening heredoc_tmp.txt for writing");
@@ -102,14 +104,21 @@ int ft_heredoc(int *fd, t_redirection *redirect) {
 // Function to handle all types of redirection including heredoc
 int ft_redirection(t_mini *mini, t_redirection *redirect) {
     while (redirect != NULL) {
+        printf("dfsdfsd\n");
         if (redirect->type == RE_GREAT && ft_great_than(&mini->red_fd[1], redirect))
             return 1;
         if (redirect->type == RE_LESS && ft_less_than(&mini->red_fd[0], redirect))
+        {
+            printf("r u here\n");
             return 1;
+        }
         if (redirect->type == RE_DOUBLE_GREAT && ft_double_great(&mini->red_fd[1], redirect))
             return 1;
         if (redirect->type == RE_HEREDOC && ft_heredoc(&mini->red_fd[0], redirect))
+        {
+            printf("aadghghja\n");
             return 1;
+        }
         redirect = redirect->next;
     }
     return 0;

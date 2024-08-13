@@ -27,7 +27,7 @@ t_redirection	*ft_create_redirection(t_token **tokens, int index)
 		redirection->type = RE_DOUBLE_GREAT;
 	else if ((*tokens)->type == LESS)
 		redirection->type = RE_LESS;
-	else if((*tokens)->type == RE_HEREDOC)
+	else if((*tokens)->type == HEREDOC)
 		redirection->type = RE_HEREDOC;
 	(*tokens) = (*tokens)->next;
 	redirection->file_name = ft_strdup((*tokens)->value);

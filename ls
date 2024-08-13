@@ -1,0 +1,10 @@
+Makefile
+RRRRRRRa
+a
+hassan.txt
+headers
+ls
+minishell
+objects
+qa
+src

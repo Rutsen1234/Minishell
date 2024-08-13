@@ -12,7 +12,7 @@
 
 #include "../headers/minishell.h"
 #include "../headers/execution.h"
-
+#include <signal.h>
 void	ft_tokinization_and_parsing(char **line,
 		t_pipe_line **current_pipe_line, int *status)
 {
@@ -37,6 +37,7 @@ void	ft_tokinization_and_parsing(char **line,
 int	ft_expande_and_execute_pipe_line(t_pipe_line *current_pipe_line,
 		char **last_arg_exit_sts, int *status, t_env **env_list)
 {
+	printf("cjecl");
 	if (last_arg_exit_sts[0])
 		free(last_arg_exit_sts[0]);
 	last_arg_exit_sts[0] = ft_int_to_string(*status);
@@ -90,8 +91,10 @@ void	ft_minishell(char **env)
 		show_prompt();
 		micro_read_line(&line, &status);
 		ft_tokinization_and_parsing(&line, &currnt_pipe_line, &status);
+		// printf("ds");
 		while (currnt_pipe_line)
 		{
+			printf("hello");
 			status = ft_expande_and_execute_pipe_line(currnt_pipe_line,
 					last_arg_exit_sttus, &status, &env_list);
 			currnt_pipe_line = currnt_pipe_line->next;
