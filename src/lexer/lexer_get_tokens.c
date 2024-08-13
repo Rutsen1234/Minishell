@@ -12,12 +12,6 @@
 
 #include "../../headers/minishell.h"
 
-/*
-* begining is bach_slash "\"
-* begining is single_quoting '
-* begining is double_quoting "
-* no quoting
-*/
 static int	check_the_beginning_of_word(int c)
 {
 	if (c == 92)
@@ -33,36 +27,40 @@ static int	check_the_beginning_of_word(int c)
 static void	add_token_and_increament_index(t_token *tokens_list, char *word,
 			int *table, int j)
 {
-	add_token(tokens_list, WORD, word, table[3]);
+	add_token(tokens_list, WORD, word, table[3],NULL);
 	table[1] = j;
 	table[3]++;
 }
 
-void	ft_get_word(t_token *tokens_list, char *line, int *table)
+void ft_get_word(t_token *tokens_list, char *line, int *table)
 {
-	int		quoting;
-	char	*word;
-	int		j;
+    int quoting;
+    char *word = NULL;
+    int j = table[1];
 
-	j = 0;
-	quoting = -1;
-	word = NULL;
-	j = table[1];
-	while (line[j])
-	{
-		quoting = check_the_beginning_of_word(line[j]);
-		if (quoting == 0)
-		{
-			word = ft_get_words(line, &j, word, &quoting);
-			if (ft_strchr("\t ><|;", line[j]))
-				break ;
-		}
-		else if (quoting > 0)
-		{
-			word = ft_get_words(line, &j, word, &quoting);
-			if (line[j] == ' ' || line[j] == '\t')
-				break ;
-		}
-	}
-	add_token_and_increament_index(tokens_list, word, table, j);
+    while (line[j])
+    {
+        quoting = check_the_beginning_of_word(line[j]);
+        if (quoting == 0)
+        {
+            if (line[j] == '<' && line[j + 1] == '<')
+            {
+                // Add heredoc token and skip the rest of the line
+                add_token(tokens_list, HEREDOC, "<<", table[3], NULL);
+                table[1] = j + 2;  // Move past the "<<"
+                return;  // Stop further processing for this token
+            }
+            word = ft_get_words(line, &j, word, &quoting);
+            if (ft_strchr("\t ><|;", line[j]))
+                break;
+        }
+        else if (quoting > 0)
+        {
+            word = ft_get_words(line, &j, word, &quoting);
+            if (line[j] == ' ' || line[j] == '\t')
+                break;
+        }
+    }
+    add_token_and_increament_index(tokens_list, word, table, j);
 }
+
