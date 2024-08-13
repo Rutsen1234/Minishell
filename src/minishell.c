@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjamali <zjamali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:59:14 by zjamali           #+#    #+#             */
-/*   Updated: 2021/06/10 18:08:30 by zjamali          ###   ########.fr       */
+/*   Updated: 2024/08/13 11:01:54 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_tokinization_and_parsing(char **line,
 int	ft_expande_and_execute_pipe_line(t_pipe_line *current_pipe_line,
 		char **last_arg_exit_sts, int *status, t_env **env_list)
 {
-	printf("cjecl");
+	// printf("cjecl");
 	if (last_arg_exit_sts[0])
 		free(last_arg_exit_sts[0]);
 	last_arg_exit_sts[0] = ft_int_to_string(*status);
@@ -94,7 +94,7 @@ void	ft_minishell(char **env)
 		// printf("ds");
 		while (currnt_pipe_line)
 		{
-			printf("hello");
+			// printf("hello");
 			status = ft_expande_and_execute_pipe_line(currnt_pipe_line,
 					last_arg_exit_sttus, &status, &env_list);
 			currnt_pipe_line = currnt_pipe_line->next;

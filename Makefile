@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/02 16:01:57 by mbari             #+#    #+#              #
-#    Updated: 2024/08/10 14:55:26 by haeltahi         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Name of the final executable
 NAME = minishell
 
@@ -108,7 +96,7 @@ OBJS := $(OBJ_EXEC) $(OBJ_LEX) $(OBJ_EXPA) $(OBJ_PARS) $(OBJ_READ) $(OBJ_MAIN)
 LIBFT_FILE := $(LIBFT_FOLDER)/$(LIBFT_LIB)
 
 # Name the compiler
-CC = gcc 
+CC = gcc -fsanitize=address -g3
 
 # OS specific part
 RM = rm -rf 

@@ -33,7 +33,7 @@ void ft_pipe_fork(t_simple_cmd *cmd, t_env **head, t_mini *mini, int *command)
     if (*command != 0 && dup2(mini->fd[*command - 2], STDIN_FILENO) < 0)
         exit(ft_put_err("dup2", ": couldn't clone the fd1", 1));
 
-    printf("dsd");
+    // printf("dsd");
     // if (cmd->redirections && ft_redirection(mini, cmd->redirections))
     // {
     //     printf("are tou here");

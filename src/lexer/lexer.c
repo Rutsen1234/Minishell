@@ -69,14 +69,6 @@ void	ft_destoy_token_list(t_token *tokens_list)
 			write(1, CYAN, ft_strlen(CYAN));
 		}
 	}
-
-
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-// Function to extract the delimiter
 char *extract_delimiter(char *content) {
     char *delimiter_start = strstr(content, "<<");
     if (!delimiter_start) {

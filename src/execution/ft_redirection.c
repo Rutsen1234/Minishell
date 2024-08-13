@@ -45,7 +45,7 @@ int ft_double_great(int *fd, t_redirection *redirect) {
 
 // Function to handle heredoc redirection
 int ft_heredoc(int *fd, t_redirection *redirect) {
-    printf("assssaa\n");
+    // printf("assssaa\n");
 
     char *delimiter = redirect->file_name;  // Use the file_name field for the delimiter
     char *line = NULL;

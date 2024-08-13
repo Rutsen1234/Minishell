@@ -6,7 +6,7 @@
 /*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:41:25 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/10 14:18:39 by haeltahi         ###   ########.fr       */
+/*   Updated: 2024/08/13 10:56:35 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ void			get_space_pipe_semi_redir(t_token *tokens_list,
 void			ft_destoy_token_list(t_token *tokens_list);
 void			print_tokens(t_token *tokens_list);
 void			add_token(t_token *token_list, t_token_type type,
-					char *content, int index);
+					char *content, int index,char *str);
 char			*ft_get_words(char *line, int *j, char *word, int *quoting);
 
 /* ************************************************************************** */

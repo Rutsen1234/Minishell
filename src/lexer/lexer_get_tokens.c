@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer_get_tokens.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjamali <zjamali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 09:28:52 by zjamali           #+#    #+#             */
-/*   Updated: 2021/05/02 10:56:33 by zjamali          ###   ########.fr       */
+/*   Updated: 2024/08/13 11:10:31 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void ft_get_word(t_token *tokens_list, char *line, int *table)
             if (line[j] == '<' && line[j + 1] == '<')
             {
                 // Add heredoc token and skip the rest of the line
-                add_token(tokens_list, HEREDOC, "<<", table[3], NULL);
+                // add_token(tokens_list, HEREDOC, "<<", table[3], line);
                 table[1] = j + 2;  // Move past the "<<"
                 return;  // Stop further processing for this token
             }

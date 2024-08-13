@@ -103,12 +103,8 @@ int	ft_execute(t_pipe_line *cmd, t_env **head)
 	
 	if (cmd->child->redirections != NULL)
 	{
-<<<<<<< HEAD
 		// printf("dd");
 		if (ft_redirection(&mini, cmd->child->redirections))
-=======
-		if (ft_redirection(&mini, cmd->child->redirections) )
->>>>>>> 43963aa (dujfoisd)
 		{
 			// printf("ss");
 			ft_do_backups(0);
