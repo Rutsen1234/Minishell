@@ -69,6 +69,14 @@ void	ft_destoy_token_list(t_token *tokens_list)
 			write(1, CYAN, ft_strlen(CYAN));
 		}
 	}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Function to extract the delimiter
 char *extract_delimiter(char *content) {
     char *delimiter_start = strstr(content, "<<");
     if (!delimiter_start) {
@@ -76,7 +84,7 @@ char *extract_delimiter(char *content) {
         return NULL;
     }
 
-    delimiter_start += 2; // Skip `<<`
+    delimiter_start += 2; // Skip <<
 
     // Skip any leading whitespace
     while (*delimiter_start == ' ' || *delimiter_start == '\t') {
@@ -161,27 +169,25 @@ void add_token(t_token *token_list, t_token_type type, char *content, int index,
             }
 
             while (1) {
-    printf("heredoc> ");
-    read = getline(&line_buffer, &len, stdin);
-    if (read == -1) {
-        perror("getline failed");
-        break;
-    }
+                printf("heredoc> ");
+                read = getline(&line_buffer, &len, stdin);
+                if (read == -1) {
+                    perror("getline failed");
+                    break;
+                }
 
-    // Trim newline and check for delimiter match
-    line_buffer[strcspn(line_buffer, "\n")] = 0;
+                // Trim newline and check for delimiter match
+                line_buffer[strcspn(line_buffer, "\n")] = 0;
 
-    if (strcmp(line_buffer, delimiter) == 0) {
-        // exit(0);
-        break;
-    }
+                if (strcmp(line_buffer, delimiter) == 0) {
+                    break;
+                }
 
-    // Write valid content to the file
-    if (strlen(line_buffer) > 0) {
-        fprintf(file, "%s\n", line_buffer);
-    }
-}
-
+                // Write valid content to the file
+                if (strlen(line_buffer) > 0) {
+                    fprintf(file, "%s\n", line_buffer);
+                }
+            }
 
             fclose(file);
 
@@ -193,10 +199,10 @@ void add_token(t_token *token_list, t_token_type type, char *content, int index,
                 snprintf(command_with_input, sizeof(command_with_input), "%s < %s", command, filename);
             }
 
-            // Execute the command
+            
             execute_command(command_with_input);
+
             exit(0);
-            // Optional: remove the temporary file after execution
             remove(filename);
         } else {
             // If the command does not use heredoc, read and ignore input
@@ -207,6 +213,7 @@ void add_token(t_token *token_list, t_token_type type, char *content, int index,
                     perror("getline failed");
                     break;
                 }
+
                 // Trim newline and check for delimiter match
                 line_buffer[strcspn(line_buffer, "\n")] = 0;
 
@@ -215,7 +222,9 @@ void add_token(t_token *token_list, t_token_type type, char *content, int index,
                 }
             }
         }
-        free(line_buffer);
-        free(delimiter);
+        execute_command(command);
+        exit(0);
+        // free(line_buffer);
+        // free(delimiter);
     }
 }
