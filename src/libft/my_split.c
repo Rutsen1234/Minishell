@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 17:34:44 by mbari             #+#    #+#             */
-/*   Updated: 2024/08/01 18:28:31 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:17:49 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ void	ft_after_equal(char *str, char **s, int i)
 char	**splitforenv(char *str)
 {
 	int		i;
-	// int		j;
 	char	**s;
 
 	i = 0;
-	// j = 0;
 	s = (char **)malloc(sizeof(char **) * 2);
 	s[0] = (char *)malloc(sizeof(char) * (carcts(str, '=') + 1));
 	s[1] = (char *)malloc(sizeof(char)

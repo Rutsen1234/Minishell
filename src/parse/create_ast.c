@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_ast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:14:53 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/01 17:06:42 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:14:27 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,8 @@ void	ft_create_next_pipeline(t_token *tokens_list, t_command_list **head)
 t_command_list	*ft_create_ast(t_token *tokens_list)
 {
 	t_command_list	*head;
-	// t_pipe_line		*current_pipeline;
-	// int				pipe_count;
 
-	// pipe_count = 0;
 	head = init_cmd_list();
-	// current_pipeline = NULL;
 	while (tokens_list->type != NEWLINE)
 	{
 		if (head->childs == NULL)

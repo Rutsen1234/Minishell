@@ -44,7 +44,7 @@ ft_utlis.c
 LEX_FILES = lexer_get_tokens_op.c \
 lexer_get_tokens_word.c \
 lexer_get_tokens.c \
-lexer.c
+lexer.c lexer_continue.c
 
 # Parse files variable
 

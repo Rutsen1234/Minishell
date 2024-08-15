@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_cd.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 11:26:21 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/13 11:26:40 by rsimon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../headers/execution.h"
 
@@ -12,8 +22,8 @@ int	ft_replace_pwd(t_env **head, t_env *temp, char *dir)
 	if (new_pwd)
 		ft_replaceit(head, "PWD", new_pwd);
 	else
-		ft_replaceit(head, "PWD", ft_strjoin(temp->value,
-				ft_strjoin("/", dir)));
+		ft_replaceit(head, "PWD", ft_strjoin(temp->value, ft_strjoin("/",
+					dir)));
 	free(new_pwd);
 	return (0);
 }
@@ -65,6 +75,7 @@ int	ft_change_dir(t_env **head, char *dir)
 	ft_replaceit(head, "OLDPWD", temp->value);
 	return (ft_replace_pwd(head, temp, dir));
 }
+
 int	ft_cd(t_args *args, t_env **head)
 {
 	char	*dir;

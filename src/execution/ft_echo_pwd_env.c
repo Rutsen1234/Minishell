@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_echo_pwd_env.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 11:27:16 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/13 11:44:49 by rsimon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../headers/execution.h"
 
@@ -15,7 +26,7 @@ void	ft_loop(t_args *args)
 
 int	ft_isitn(char *arg)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (arg[i] == 'n' && arg[i])
@@ -25,35 +36,38 @@ int	ft_isitn(char *arg)
 	return (1);
 }
 
-int ft_echo(t_args *args) 
+int	ft_echo(t_args *args)
 {
-    int new_line = 1;
+	int	new_line;
 
-    if (args && ft_isitn(args->value)) {
-        new_line = 0;
-        args = args->next;
-    }
-
-    if (args == NULL) {
-        ft_putchar_fd('\n', 1);
-    } else {
-        ft_loop(args);
-        if (new_line) {
-            ft_putchar_fd('\n', 1);
-        }
-    }
-
-    return 0;
+	new_line = 1;
+	if (args && ft_isitn(args->value))
+	{
+		new_line = 0;
+		args = args->next;
+	}
+	if (args == NULL)
+		ft_putchar_fd('\n', 1);
+	else
+	{
+		ft_loop(args);
+		if (new_line)
+			ft_putchar_fd('\n', 1);
+	}
+	return (0);
 }
+
 int	ft_pwd(t_env **head)
 {
-	char	*pwd = getcwd(NULL, 100);
+	char	*pwd;
+	t_env	*temp;
 
+	pwd = getcwd(NULL, 100);
 	if (pwd)
 		ft_putendl_fd(pwd, 1);
 	else
 	{
-		t_env *temp = ft_search_in_list(head, "PWD");
+		temp = ft_search_in_list(head, "PWD");
 		if (temp)
 			ft_putendl_fd(temp->value, 1);
 	}
@@ -76,5 +90,5 @@ int	ft_env(t_env **head)
 		}
 		temp = temp->next;
 	}
-	return(0);
+	return (0);
 }

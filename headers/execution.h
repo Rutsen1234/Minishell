@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:45:53 by mbari             #+#    #+#             */
-/*   Updated: 2024/08/01 17:24:50 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/15 22:12:39 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EXECUTION_H
 
 # include "minishell.h"
+
 typedef struct s_mini
 {
 	int	*fd;
@@ -80,5 +81,6 @@ int		ft_delete_first_node(t_env **head, t_env *temp, char *name);
 void	ft_exec_file(t_simple_cmd *cmd, t_env **head, char *path, int *status);
 void	ft_pipe_fork(t_simple_cmd *cmd, t_env **head, t_mini *mini,
 			int *command);
+int		ft_redirection(t_mini *mini, t_redirection *redirect);
 
 #endif

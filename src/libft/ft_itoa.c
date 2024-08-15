@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 16:21:35 by mbari             #+#    #+#             */
-/*   Updated: 2024/08/01 16:44:59 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:17:06 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ void	ft_store(char *str, int int_size, int n)
 
 char	*ft_itoa(int n)
 {
-	// int				i;
 	char			*str;
 	int				int_size;
 
-	// i = 0;
 	int_size = ft_intsize(n);
 	str = (char *)malloc(sizeof(char) * int_size + 1);
 	if (n == -2147483648)
@@ -45,7 +43,6 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (n <= 0)
 	{
-		// i = 1;
 		if (n == 0)
 			str[0] = '0';
 		else

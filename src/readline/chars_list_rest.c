@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chars_list_rest.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 20:43:34 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/01 17:06:58 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:19:27 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,6 @@ int	ft_copy_char_value(int len, t_char_list **origin, t_char_list **tmp)
 t_lines_list	*push_curr_node_to_list(t_lines_list **list,
 				t_lines_list *current, int history)
 {
-	// t_lines_list	*tmp_list;
-
-	// tmp_list = *list;
 	if (current)
 	{
 		if ((*list)->prev != NULL)
@@ -97,9 +94,6 @@ void	ft_add_to_char_list_non_empty_node(char c, t_char_list **chars_list)
 void	ft_add_to_char_list(t_readline *readline, char c,
 		t_char_list **chars_list)
 {
-	// t_char_list	*tmp;
-
-	// tmp = NULL;
 	ft_move_cursor_and_clear(readline->cursor);
 	if (*chars_list == NULL || ((*chars_list) && (*chars_list)->value == 0))
 	{

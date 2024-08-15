@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:07:04 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/01 17:07:07 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:18:17 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ t_simple_cmd	*ft_delete_empty_node_between(t_simple_cmd	**head,
 t_simple_cmd	*ft_delete_emty_simple_cmds(t_pipe_line **pipe_line)
 {
 	t_simple_cmd	*head;
-	// t_simple_cmd	*prev;
 	t_simple_cmd	*temp;
 
-	// prev = NULL;
 	head = (*pipe_line)->child;
 	temp = head;
 	while (temp != NULL && (!temp->command && temp->inside_quotes == 0)

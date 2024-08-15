@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:41:25 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/13 10:56:35 by haeltahi         ###   ########.fr       */
+/*   Updated: 2024/08/15 21:10:09 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # include <string.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include <sys/stat.h>
 # include <errno.h>
 # include <termios.h>
@@ -25,7 +24,8 @@
 # include <termcap.h>
 # include <sys/ioctl.h>
 # include "../src/libft/libft.h"
-#include <sys/wait.h>
+# include <sys/wait.h>
+# include <unistd.h>
 
 # define GREEN "\e[1;32m"
 # define RESET "\e[0m"
@@ -36,7 +36,7 @@
 # define BLUE "\e[1;34m"
 # define YES 1
 # define NO 0
-#
+
 
 /******* READLINE **********/
 
@@ -51,13 +51,15 @@
 # define D_KEY_CTRL_C 3
 # define D_KEY_CTRL_D 4
 
-typedef struct s_char_list{
+typedef struct s_char_list
+{
 	char				value;
 	int					len;
 	struct s_char_list	*next;
 }				t_char_list;
 
-typedef struct s_lines_list{
+typedef struct s_lines_list
+{
 	char				value;
 	int					history;
 	int					index;
@@ -67,10 +69,13 @@ typedef struct s_lines_list{
 	struct s_lines_list	*next;
 	struct s_lines_list	*prev;
 }				t_lines_list;
-typedef struct s_cursor{
+
+typedef struct s_cursor
+{
 	int	line_postion;
 	int	col_position;
 }				t_cursor;
+
 typedef struct s_readline
 {
 	char		*term_type;
@@ -81,10 +86,11 @@ typedef struct s_readline
 	char		*path;
 	char		*line;
 	t_cursor	cursor;
-}t_readline;
+}	t_readline;
 
-/******* LESXER **********/
-typedef enum e_token_type{
+/******* LEXER **********/
+typedef enum e_token_type
+{
 	NONE,
 	WORD,
 	SEMI,
@@ -105,7 +111,8 @@ typedef struct s_token
 }				t_token;
 
 /******* PARSER **********/
-typedef enum e_redirection_type{
+typedef enum e_redirection_type
+{
 	RE_GREAT,
 	RE_DOUBLE_GREAT,
 	RE_LESS,
@@ -121,7 +128,8 @@ typedef struct s_redirection
 	struct s_redirection	*next;
 }				t_redirection;
 
-typedef struct s_args{
+typedef struct s_args
+{
 	int				inside_quotes;
 	char			*value;
 	struct s_args	*next;
@@ -186,7 +194,7 @@ void			get_space_pipe_semi_redir(t_token *tokens_list,
 void			ft_destoy_token_list(t_token *tokens_list);
 void			print_tokens(t_token *tokens_list);
 void			add_token(t_token *token_list, t_token_type type,
-					char *content, int index,char *str);
+					char *content, int index, char *str);
 char			*ft_get_words(char *line, int *j, char *word, int *quoting);
 
 /* ************************************************************************** */

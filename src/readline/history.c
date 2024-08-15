@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjamali <zjamali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 20:34:27 by zjamali           #+#    #+#             */
-/*   Updated: 2021/06/10 20:59:07 by zjamali          ###   ########.fr       */
+/*   Updated: 2024/08/15 21:42:07 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_lines_list	*ft_insert_node_to_history(t_lines_list *list,
 }
 
 int	add_curr_node_to_history(t_readline *readline,
-				  t_lines_list *current, t_lines_list **history)
+	t_lines_list *current, t_lines_list **history)
 {
 	t_lines_list	*new_line_node;
 

@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_path.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 11:27:03 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/13 11:27:06 by rsimon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../headers/execution.h"
 
 int	ft_file_check(t_simple_cmd *cmd, t_env **head)
 {
-	struct stat		buf;
+	struct stat	buf;
 
 	if (stat(cmd->command, &buf) == -1)
 		return (ft_put_err(cmd->command, ": No such file or directory", 127));
@@ -27,10 +38,10 @@ char	*ft_join_path(char *path, char *cmd)
 
 int	ft_find_file(t_simple_cmd *cmd, t_env **head)
 {
-	t_env			*temp;
-	char			**path;
-	int				status;
-	int				i;
+	t_env	*temp;
+	char	**path;
+	int		status;
+	int		i;
 
 	i = 0;
 	status = -77;
@@ -50,7 +61,7 @@ int	ft_find_file(t_simple_cmd *cmd, t_env **head)
 
 int	ft_check_path(t_simple_cmd *cmd, t_env **head)
 {
-	int				status;
+	int	status;
 
 	if (ft_strchr(cmd->command, '/') || cmd->command[0] == '.')
 		return (ft_file_check(cmd, head));

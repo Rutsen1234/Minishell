@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:37:37 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/03 18:39:44 by hassaneltah      ###   ########.fr       */
+/*   Updated: 2024/08/13 15:15:29 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_redirection	*ft_create_redirection(t_token **tokens, int index)
 		redirection->type = RE_DOUBLE_GREAT;
 	else if ((*tokens)->type == LESS)
 		redirection->type = RE_LESS;
-	else if((*tokens)->type == HEREDOC)
+	else if ((*tokens)->type == HEREDOC)
 		redirection->type = RE_HEREDOC;
 	(*tokens) = (*tokens)->next;
 	redirection->file_name = ft_strdup((*tokens)->value);

@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utlis.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 12:29:54 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/13 12:29:58 by rsimon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../headers/execution.h"
 
@@ -35,19 +45,22 @@ int	ft_count_args(t_args **args)
 	return (i);
 }
 
-void ft_do_backups(int flag) 
+void	ft_do_backups(int flag)
 {
-    static int std_fds[3];
+	static int	std_fds[3];
 
-    if (flag == 1) {
-        std_fds[0] = dup(STDIN_FILENO);
-        std_fds[1] = dup(STDOUT_FILENO);
-        std_fds[2] = dup(STDERR_FILENO);
-    } else {
-        dup2(std_fds[0], STDIN_FILENO);
-        dup2(std_fds[1], STDOUT_FILENO);
-        dup2(std_fds[2], STDERR_FILENO);
-    }
+	if (flag == 1)
+	{
+		std_fds[0] = dup(STDIN_FILENO);
+		std_fds[1] = dup(STDOUT_FILENO);
+		std_fds[2] = dup(STDERR_FILENO);
+	}
+	else
+	{
+		dup2(std_fds[0], STDIN_FILENO);
+		dup2(std_fds[1], STDOUT_FILENO);
+		dup2(std_fds[2], STDERR_FILENO);
+	}
 }
 
 int	ft_put_err(char *input, char *message, int ret)
