@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_word.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjamali <zjamali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 20:07:29 by zjamali           #+#    #+#             */
-/*   Updated: 2021/06/10 20:25:14 by zjamali          ###   ########.fr       */
+/*   Created: 2024/08/15 21:17:24 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/15 21:17:27 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_replace_env_by_value(char *str, int *i, char **expanded,
 		while (ft_isalpha(str[*i]) || ft_isalnum(str[*i])
 			|| str[*i] == '_')
 			(*i)++;
-	}	
+	}
 }
 
 void	ft_skip_characters_env_not_exist(char *str, int *i)

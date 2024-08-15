@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expansion.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 14:41:59 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/01 17:06:24 by hassaneltah      ###   ########.fr       */
+/*   Created: 2024/08/15 21:17:32 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/15 21:17:36 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 void	ft_expande_simple_cmd(t_simple_cmd **cmd, t_env **env, char **last_env)
 {
 	t_args			*args;
-	// t_args			*to_free;
 
-	// to_free = NULL;
 	args = NULL;
 	ft_expand_arguments(cmd, env, last_env);
 	if ((*cmd)->command)

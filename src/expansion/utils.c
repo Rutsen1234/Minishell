@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hassaneltahir <hassaneltahir@student.42    +#+  +:+       +#+        */
+/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 19:03:35 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/01 17:06:32 by hassaneltah      ###   ########.fr       */
+/*   Created: 2024/08/15 21:17:53 by rsimon            #+#    #+#             */
+/*   Updated: 2024/08/15 21:18:17 by rsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ static int	ft_intlen(unsigned int n)
 
 char	*ft_int_to_string(int n)
 {
-	// int		i;
 	int		len;
 	char	*str;
 
-	// i = 0;
 	len = 0;
 	str = NULL;
 	if (n == 0)
