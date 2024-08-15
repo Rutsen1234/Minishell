@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:41:25 by zjamali           #+#    #+#             */
-/*   Updated: 2024/08/15 21:10:09 by rsimon           ###   ########.fr       */
+/*   Updated: 2024/08/16 02:24:34 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,20 @@ typedef struct s_expansion
 	char	*tmp;
 }				t_expansion;
 
+typedef struct t_tmp
+{
+	t_token	*tmp;
+	char	*delimiter;
+	char	*line_buffer;
+	size_t	len;
+	ssize_t	read;
+	FILE	*file;
+	char	filename[256];
+	char	command_with_input[512];
+	char	*command;
+	ssize_t	read_result;
+}				s_tmp;
+
 /* ************************************************************************** */
 /*                                 LEXER                                      */
 /* ************************************************************************** */
@@ -194,9 +208,12 @@ void			get_space_pipe_semi_redir(t_token *tokens_list,
 void			ft_destoy_token_list(t_token *tokens_list);
 void			print_tokens(t_token *tokens_list);
 void			add_token(t_token *token_list, t_token_type type,
-					char *content, int index, char *str);
+					char *content, int index);
 char			*ft_get_words(char *line, int *j, char *word, int *quoting);
-
+void	add_tokenforheredoc(t_token *token_list,
+		char *line);
+char	*extract_delimiter(char *content);
+char	*extract_delimiter1(char *content);
 /* ************************************************************************** */
 /*                                 PARSER                                     */
 /* ************************************************************************** */

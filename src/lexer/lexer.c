@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 21:24:17 by rsimon            #+#    #+#             */
-/*   Updated: 2024/08/15 22:15:58 by rsimon           ###   ########.fr       */
+/*   Updated: 2024/08/16 00:39:35 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	create_tokens_list(t_token *tokens_list, char *line)
 		}
 		table[0] = table[1];
 	}
-	add_token(tokens_list, NEWLINE, ft_strdup("newline"), table[3], NULL);
+	add_token(tokens_list, NEWLINE, ft_strdup("newline"), table[3]);
 }
 
 t_token	*ft_lexer(char *line)
@@ -82,4 +82,3 @@ void	ft_destoy_token_list(t_token *tokens_list)
 		write(1, CYAN, ft_strlen(CYAN));
 	}
 }
-

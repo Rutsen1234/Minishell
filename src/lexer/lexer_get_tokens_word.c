@@ -27,8 +27,8 @@ static char	*get_no_quoting_word(char *line, int *i)
 
 static int	ft_count_backslashes(char *line, int j)
 {
-	int		k;
-	int		back_slash_count;
+	int	k;
+	int	back_slash_count;
 
 	k = j - 1;
 	back_slash_count = 0;

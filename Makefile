@@ -44,7 +44,8 @@ ft_utlis.c
 LEX_FILES = lexer_get_tokens_op.c \
 lexer_get_tokens_word.c \
 lexer_get_tokens.c \
-lexer.c lexer_continue.c
+lexer.c lexer_continue.c \
+addtokenforheredoc.c
 
 # Parse files variable
 
@@ -112,40 +113,40 @@ ERRIGNORE = 2>/dev/null
 all: credit $(NAME)
 	
 libft:
-	@echo "$(BLUE)█████████████████████████ Making LIBFT █████████████████████████$(RESET)"
-	@$(MAKE) $(LIBFT_FOLDER)
-	@echo "$(BLUE)███████████████████████ Making minishell ███████████████████████$(RESET)"
+	echo "$(BLUE)█████████████████████████ Making LIBFT █████████████████████████$(RESET)"
+	$(MAKE) $(LIBFT_FOLDER)
+	echo "$(BLUE)███████████████████████ Making minishell ███████████████████████$(RESET)"
 
 $(NAME): libft $(OBJS)
-	@$(CC) -I $(HEADERSDIR) -I $(LIBFT_FOLDER) $(OBJS) $(LIBFT_FOLDER)/$(LIBFT_LIB) $(LIBS) -o $@
-	@echo "$(BLUE)███████████████████████ Compiling is DONE ██████████████████████$(RESET)"
+	$(CC) -I $(HEADERSDIR) -I $(LIBFT_FOLDER) $(OBJS) $(LIBFT_FOLDER)/$(LIBFT_LIB) $(LIBS) -o $@
+	echo "$(BLUE)███████████████████████ Compiling is DONE ██████████████████████$(RESET)"
 
 $(OBJECTSDIR)/%.o : $(SOURCEDIR)/%.c $(HEADERSDIR)/*.h
-	@$(MKDIR) $(dir $@)
-	@echo "$(BLUE)█ $(YELLOW)Compiling$(RESET) $<:\r\t\t\t\t\t\t\t$(GREEN){DONE}$(BLUE) █$(RESET)"
-	@$(CC) $(FLAGS) -I $(HEADERSDIR) -I $(LIBFT_FOLDER) -o $@ -c $<
+	$(MKDIR) $(dir $@)
+	echo "$(BLUE)█ $(YELLOW)Compiling$(RESET) $<:\r\t\t\t\t\t\t\t$(GREEN){DONE}$(BLUE) █$(RESET)"
+	$(CC) $(FLAGS) -I $(HEADERSDIR) -I $(LIBFT_FOLDER) -o $@ -c $<
 
 # Remove all objects, dependencies and executable files generated during the build
 
 clean:
-	@echo "$(RED)deleting$(RESET): " $(OBJECTSDIR)
-	@$(RMDIR) $(OBJECTSDIR) $(ERRIGNORE)
-	@echo "$(RED)deleting$(RESET): " "libft objects"
-	@$(MAKE) $(LIBFT_FOLDER) clean
+	echo "$(RED)deleting$(RESET): " $(OBJECTSDIR)
+	$(RMDIR) $(OBJECTSDIR) $(ERRIGNORE)
+	echo "$(RED)deleting$(RESET): " "libft objects"
+	$(MAKE) $(LIBFT_FOLDER) clean
 
 fclean: clean
-	@echo "$(RED)deleting$(RESET): " $(LIBFT_FOLDER)/$(LIBFT_LIB)
-	@$(RM) $(LIBFT_FOLDER)/$(LIBFT_LIB) $(ERRIGNORE)
-	@echo "$(RED)deleting$(RESET): " $(NAME)
-	@$(RM) $(NAME) $(ERRIGNORE)
+	echo "$(RED)deleting$(RESET): " $(LIBFT_FOLDER)/$(LIBFT_LIB)
+	$(RM) $(LIBFT_FOLDER)/$(LIBFT_LIB) $(ERRIGNORE)
+	echo "$(RED)deleting$(RESET): " $(NAME)
+	$(RM) $(NAME) $(ERRIGNORE)
 
 re: fclean $(NAME)
 
 credit:
-	@echo "███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
-	@echo "████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
-	@echo "██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     "
-	@echo "██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     "
-	@echo "██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗"
-	@echo "╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝"
-	@echo "         Made with love by
+	echo "███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     "
+	echo "████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     "
+	echo "██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     "
+	echo "██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     "
+	echo "██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗"
+	echo "╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝"
+	echo "         Made with love by

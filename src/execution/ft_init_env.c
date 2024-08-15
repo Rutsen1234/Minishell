@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsimon <rsimon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haeltahi <haeltahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:02:53 by rsimon            #+#    #+#             */
-/*   Updated: 2024/08/15 22:14:08 by rsimon           ###   ########.fr       */
+/*   Updated: 2024/08/16 01:12:08 by haeltahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/execution.h"
 #include "../../headers/minishell.h"
-
 
 int	ft_count_list(t_env **head)
 {
@@ -101,9 +100,6 @@ int	ft_redirection(t_mini *mini, t_redirection *redirect)
 		if (redirect->type == RE_DOUBLE_GREAT
 			&& ft_double_great(&mini->red_fd[1], redirect))
 			return (1);
-		// if (redirect->type == RE_HEREDOC && ft_heredoc(&mini->red_fd[0],
-		// 		redirect))
-		// 	return (1);
 		redirect = redirect->next;
 	}
 	return (0);
